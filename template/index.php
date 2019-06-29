@@ -27,10 +27,10 @@
         <div class="container">
             <aside>
                 <ul class="menu">
-                    <li><a href="dashboard.html" class="aktif">Dashboard</a></li>
-                    <li><a href="tabel.html">Data Pegawai</a></li>
-                    <li><a href="tabel.html">Data Jabatan</a></li>
-                    <li><a href="login.html">Keluar</a></li>
+                    <li><a href="?hal=dashboard" class="aktif">Dashboard</a></li>
+                    <li><a href="?hal=pegawai">Data Pegawai</a></li>
+                    <li><a href="?hal=jabatan">Data Jabatan</a></li>
+                    <li><a href="logout.php">Keluar</a></li>
                 </ul>
             </aside>
             <section class="main">
@@ -44,4 +44,4 @@
 </html>
 <?php
     }
-    ?>
+?>

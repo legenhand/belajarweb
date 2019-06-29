@@ -1,9 +1,9 @@
 <?php
     if(!defined('INDEX')) die("");
 
-    $halaman = array("Dashboard","Pegawai","pegawai tambah", "pegawai insert", "pegawai edit",
-    "pegawai update", "pegawai hapus", "jabatan", "jabatan tambah", "jabatan insert",
-    "jabatan edit", "jabatan update", "jabatan hapus");
+    $halaman = array("dashboard","pegawai","pegawai_tambah", "pegawai_insert", "pegawai_edit",
+    "pegawai_update", "pegawai_hapus", "jabatan", "jabatan_tambah", "jabatan_insert",
+    "jabatan_edit", "jabatan_update", "jabatan_hapus");
 
     if(isset($_GET['hal'])) $hal = $_GET['hal'];
     else $hal = "dashboard";

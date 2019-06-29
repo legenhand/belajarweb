@@ -10,9 +10,9 @@
         <div class="container">
             <section class="login-box">
                 <h2>Login Aplikasi</h2>
-                <form action="ceklogin.php" method="POST">
-                    <input type="text" placeholder="Username" id="username">
-                    <input type="password" placeholder="Password" id="password">
+                <form action="ceklogin.php" method="post">
+                    <input type="text" placeholder="Username" id="username" name="username">
+                    <input type="password" placeholder="Password" id="password" name="password">
                     <input type="submit" value="login">
                 </form>
             

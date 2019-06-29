@@ -14,17 +14,17 @@
     </thead>
     <tbody>
 <?php
-    $query = mysqli_query($con, " SELECT * FROM jabatan ORDER BY id_jabatan DESC");
+    $query = mysqli_query($con,"SELECT * FROM jabatan ORDER BY id_jabatan DESC");
     $no = 0;
     while($data = mysqli_fetch_array($query)){
         $no++;
 ?>
     <tr>
-        <td><? $no ?></td>
-        <td><? $data[nama_jabatan] ?></td>
+        <td><?= $no ?></td>
+        <td><?= $data['nama_jabatan'] ?></td>
         <td>
-            <a class="tombol_edit" href="?hal=jabatan_edit&id<?=$data[id_jabatan]?>"> Edit </a>
-            <a class="tombol_hapus" href="?hal=jabatan_hapus&id<?=$data[id_jabatan]?>"> Hapus </a>
+            <a class="tombol edit" href="?hal=jabatan_edit&id=<?=$data['id_jabatan']?>"> Edit </a>
+            <a class="tombol hapus" href="?hal=jabatan_hapus&id=<?=$data['id_jabatan']?>"> Hapus </a>
 
         </td>
     </tr>

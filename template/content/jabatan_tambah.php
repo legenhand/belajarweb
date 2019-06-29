@@ -11,8 +11,8 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Simpan" class="tombol_simpan">
-        <input type="reset" value="Batal" class="tombol_reset">
+        <input type="submit" value="Simpan" class="tombol simpan">
+        <input type="reset" value="Batal" class="tombol reset">
     </div>
 
 </form>
