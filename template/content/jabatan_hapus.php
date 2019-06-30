@@ -4,7 +4,7 @@
 
     if($query){
         echo "Data berhasil dihapus!";
-        echo "<meta http-equiv='refresh' content='1' url=?haljabatan'>";
+        echo "<meta http-equiv='refresh' content='1;url=?hal=jabatan'>";
     }else{
         echo "tidak dapat menghapus data!<br>";
         echo mysqli_error();

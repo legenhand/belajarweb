@@ -21,9 +21,7 @@
         }else{
             echo "<p align='center'>Login gagal </p>";
             echo "<meta http-equiv='refresh' content='2;
-            url='login.php'>";
+            url=login.php'>";
         }
-    }else{
-        echo "data belum di set";
     }
 ?>

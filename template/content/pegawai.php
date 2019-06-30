@@ -34,12 +34,13 @@
         <td><?= $data['nama_jabatan'] ?></td>
         <td><?= $data['keterangan'] ?></td>
         <td>
-            <a href="?hal=pegawai_edit&id=<?= $data=['id_pegawai'] ?>" class="tombol edit">Edit</a>
-            <a href="?hal=pegawai_hapus&id=<?= $data=['id_pegawai'] ?>&foto=<?= $data['foto'] ?>" class="tombol hapus">hapus</a>
+        
+            <a href="?hal=pegawai_edit&id=<?= $data['id_pegawai']?>" class="tombol edit">Edit</a>
+            <a href="?hal=pegawai_hapus&id=<?= $data['id_pegawai'] ?>&foto=<?= $data['foto'] ?>" class="tombol hapus">hapus</a>
         </td>
     </tr>
     </tbody>
 <?php
-}
+    }
 ?>
 </table>

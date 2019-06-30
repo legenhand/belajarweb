@@ -6,7 +6,7 @@
     <div class="form-group">
         <label for="foto">Foto</label>
         <div class="input">
-            <input type="file" name="foto" id="id">
+            <input type="file" name="foto" id="foto">
         </div>
     </div>
     <div class="form-group">

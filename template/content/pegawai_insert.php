@@ -33,10 +33,10 @@
     }
     if($error != ""){
         echo $error;
-        echo "<meta http-equiv='refresh' content'2; url=?hal=pegawai_tambah'>";
+        echo "<meta http-equiv='refresh' content='2; url=?hal=pegawai_tambah'>";
     }elseif($query){
         echo "Data Berhasil disimpan!";
-        echo "<meta http-equiv='refresh' content'1; url=?hal=pegawai'>";
+        echo "<meta http-equiv='refresh' content='1; url=?hal=pegawai'>";
     }else{
         echo "tidak dapat menyimpan data! <br>";
         echo mysqli_error();

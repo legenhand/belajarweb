@@ -104,7 +104,7 @@ footer{
 /* mengatur desain menu yang dibuat dengan tag a */
 .menu a{
     display: block;
-    padding: 10px 10px;
+    padding: 20px 20px;
     list-style: none;
     color: #fff;
     text-decoration: none;
