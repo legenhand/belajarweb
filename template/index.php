@@ -22,13 +22,13 @@
     </head>
     <body>
         <header>
-            Aplikasi Manajemen Pegawai
+            Aplikasi Manajemen kiriman
         </header>
         <div class="container">
             <aside>
                 <ul class="menu">
                     <li><a href="?hal=dashboard" class="aktif">Dashboard</a></li>
-                    <li><a href="?hal=pegawai">Data Pegawai</a></li>
+                    <li><a href="?hal=kiriman">Data kiriman</a></li>
                     <li><a href="?hal=jabatan">Data Jabatan</a></li>
                     <li><a href="logout.php">Keluar</a></li>
                 </ul>

@@ -1,11 +1,11 @@
 <?php
     if(!defined('INDEX')) die("");
-    $query = mysqli_query($con, "SELECT * FROM pegawai WHERE id_pegawai='$_GET[id]'");
+    $query = mysqli_query($con, "SELECT * FROM kiriman WHERE id_kiriman='$_GET[id]'");
     $data = mysqli_fetch_array($query);
 ?>
-<h2 class="judul">Tambah Pegawai</h2>
-<form action="?hal=pegawai_update" method="post" enctype="multipart/form-data">
-<input type="hidden" name="id" value="<?= $data['id_pegawai'] ?>">
+<h2 class="judul">Tambah kiriman</h2>
+<form action="?hal=kiriman_update" method="post" enctype="multipart/form-data">
+<input type="hidden" name="id" value="<?= $data['id_kiriman'] ?>">
     <div class="form-group">
         <label for="foto">Foto</label>
         <div class="input">
@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
         <label for="nama">Nama</label>
-        <div class="input"><input type="text" name="nama" id="nama" value="<?= $data['nama_pegawai'] ?>"></div>
+        <div class="input"><input type="text" name="nama" id="nama" value="<?= $data['nama_kiriman'] ?>"></div>
     </div>
     <div class="form-group">
         <label for="jk">Jenis Kelamin</label>

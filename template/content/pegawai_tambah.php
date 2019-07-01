@@ -1,8 +1,8 @@
 <?php
     if(!defined('INDEX')) die("");
 ?>
-<h2 class="judul">Tambah Pegawai</h2>
-<form action="?hal=pegawai_insert" method="post" enctype="multipart/form-data">
+<h2 class="judul">Tambah kiriman</h2>
+<form action="?hal=kiriman_insert" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="foto">Foto</label>
         <div class="input">
