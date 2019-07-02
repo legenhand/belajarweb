@@ -8,8 +8,8 @@
 
     $error = "";
     if($foto == ""){
-        $query = mysqli_query($con,"INSERT INTO kiriman SET
-                    nama_kiriman = '$_POST[nama]',
+        $query = mysqli_query($con,"INSERT INTO pegawai SET
+                    nama_pegawai = '$_POST[nama]',
                     jenis_kelamin = '$_POST[jk]',
                     tgl_lahir = '$_POST[tanggal]',
                     id_jabatan = '$_POST[jabatan]',
@@ -22,8 +22,8 @@
             $error = "Ukuran File terlalu besar (lebih dari 1mb)!";
         }else{
             move_uploaded_file($lokasi, "images/".$foto);
-            $query = mysqli_query($con, "INSERT INTO kiriman SET foto = '$foto',
-                                    nama_kiriman = '$_POST[nama]',
+            $query = mysqli_query($con, "INSERT INTO pegawai SET foto = '$foto',
+                                    nama_pegawai = '$_POST[nama]',
                                     jenis_kelamin = '$_POST[jk]',
                                     tgl_lahir = '$_POST[tanggal]',
                                     id_jabatan = '$_POST[jabatan]',
@@ -33,10 +33,10 @@
     }
     if($error != ""){
         echo $error;
-        echo "<meta http-equiv='refresh' content='2; url=?hal=kiriman_tambah'>";
+        echo "<meta http-equiv='refresh' content='2; url=?hal=pegawai_tambah'>";
     }elseif($query){
         echo "Data Berhasil disimpan!";
-        echo "<meta http-equiv='refresh' content='1; url=?hal=kiriman'>";
+        echo "<meta http-equiv='refresh' content='1; url=?hal=pegawai'>";
     }else{
         echo "tidak dapat menyimpan data! <br>";
         echo mysqli_error();

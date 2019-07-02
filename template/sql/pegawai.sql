@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kiriman`
+-- Database: `pegawai`
 --
 
 -- --------------------------------------------------------
@@ -36,12 +36,12 @@ CREATE TABLE `jabatan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kiriman`
+-- Struktur dari tabel `pegawai`
 --
 
-CREATE TABLE `kiriman` (
-  `id_kiriman` int(5) NOT NULL,
-  `nama_kiriman` varchar(30) NOT NULL,
+CREATE TABLE `pegawai` (
+  `id_pegawai` int(5) NOT NULL,
+  `nama_pegawai` varchar(30) NOT NULL,
   `jenis_kelamin` varchar(10) NOT NULL,
   `tgl_lahir` date DEFAULT NULL,
   `foto` varchar(50) DEFAULT NULL,
@@ -80,10 +80,10 @@ ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
 
 --
--- Indeks untuk tabel `kiriman`
+-- Indeks untuk tabel `pegawai`
 --
-ALTER TABLE `kiriman`
-  ADD PRIMARY KEY (`id_kiriman`);
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`id_pegawai`);
 
 --
 -- Indeks untuk tabel `user`
@@ -102,10 +102,10 @@ ALTER TABLE `jabatan`
   MODIFY `id_jabatan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `kiriman`
+-- AUTO_INCREMENT untuk tabel `pegawai`
 --
-ALTER TABLE `kiriman`
-  MODIFY `id_kiriman` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `pegawai`
+  MODIFY `id_pegawai` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
