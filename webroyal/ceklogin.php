@@ -15,7 +15,7 @@
             session_start();
             $_SESSION['username'] = $data['username'];
             $_SESSION['password'] = $data['password'];
-            
+            $_SESSION['nama_lengkap'] = $data['nama_lengkap'];
 
             header("location:index.php");
         }else{

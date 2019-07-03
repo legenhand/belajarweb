@@ -44,7 +44,9 @@ input, select{
     margin: 8px 0;
     border: 1px solid #ccc;
 }
-
+input#login{
+    padding: 15px 20px;
+}
 /* mengatur tampilan tombol submit */
 input[type=submit]{
     background-color: #038ade;
@@ -184,6 +186,15 @@ label#resi{
     width: 21%;
     float: left;
 }
+input#username{
+    padding: 15px 20px;
+}
+input#password{
+    padding: 15px 20px;
+}
+
+
+
 /* mengatur lebar .input 50 dan sejajar dengan label */
 .form-group .input{
     display: block;
