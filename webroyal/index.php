@@ -19,6 +19,23 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#provinsi').change(function(){
+                    var provinsi_id = $(this).val();
+
+                    $.ajax({
+                        type: 'POST',
+                        url: 'content/kota.php',
+                        data: 'prov_id='+provinsi_id,
+                        success: function(response){
+                            $('#kota').html(response);
+                        }
+                    });
+                })
+            });
+        </script>
     </head>
     <body>
         <header>
@@ -29,7 +46,7 @@
                 <ul class="menu">
                     <li><a href="?hal=dashboard" class="aktif">Dashboard</a></li>
                     <li><a href="?hal=kiriman">Data kiriman</a></li>
-                    <li><a href="?hal=jabatan">Data Jabatan</a></li>
+                    <li><a href="?hal=jabatan">Data Ongkos kirim</a></li>
                     <li><a href="logout.php">Keluar</a></li>
                 </ul>
             </aside>

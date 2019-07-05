@@ -17,19 +17,29 @@
     <div class="form-group">
         <label for="provinsi">Provinsi</label>
         <div class="input">
+<?php
+            $sql_provinsi = mysqli_query($con, 'select * from provinces');
+?>
             <select name="provinsi" id="provinsi">
-                <option value=""> -Pilih Provinsi- </option>
+                <option value="">Pilih Provinsi</option>
+<?php 
+                while($row_provinsi = mysqli_fetch_array($sql_provinsi)){
+?>              <option value="<?= $row_provinsi['id'] ?>"><?= $row_provinsi['name'] ?></option>
+<?php                    
+                }    
+?>
             </select>
         </div>
     </div>
+
     <div class="form-group">
-        <label for="kota">Kota</label>
+    <label for="kota">Kota</label>
         <div class="input">
-            <select name="provinsi" id="provinsi">
-                <option value=""> -Pilih Kota- </option>
+            <select name="kota" id="kota">
+                <option value="">Pilih Provinsi terlebih dahulu</option>
             </select>
         </div>
-    </div>    
+    </div>
     <div class="form-group">
         <label for="berat">Berat</label>
         <div class="inputkecil"><input type="text" name="berat" id="berat"></div>

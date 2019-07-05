@@ -2,7 +2,7 @@
     if(!defined('INDEX')) die("");
 
     $halaman = array("dashboard","kiriman","kiriman_tambah", "kiriman_insert", "kiriman_edit",
-    "kiriman_update", "kiriman_hapus", "jabatan", "jabatan_tambah", "jabatan_insert",
+    "kiriman_update", "kiriman_hapus", "jabatan", "ongkir_tambah", "jabatan_insert",
     "jabatan_edit", "jabatan_update", "jabatan_hapus");
 
     if(isset($_GET['hal'])) $hal = $_GET['hal'];

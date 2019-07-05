@@ -3,7 +3,7 @@
 ?>
 
 <h2 class="judul">Data Jabatan</h2>
-<a class="tombol" href="?hal=jabatan_tambah">Tambah</a>
+<a class="tombol" href="?hal=ongkir_tambah">Tambah</a>
 <table class="table">
     <thead>
         <tr>
