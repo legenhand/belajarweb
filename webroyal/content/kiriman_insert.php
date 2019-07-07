@@ -1,44 +1,26 @@
 <?php
     if(!defined('INDEX')) die("");
-
-    $foto = $_FILES['foto']['name'];
-    $lokasi = $_FILES['foto']['tmp_name'];
-    $tipefile = $_FILES['foto']['type'];
-    $ukuranfile = $_FILES['foto']['size'];
-
-    $error = "";
-    if($foto == ""){
-        $query = mysqli_query($con,"INSERT INTO kiriman SET
-                    nama_kiriman = '$_POST[nama]',
-                    jenis_kelamin = '$_POST[jk]',
-                    tgl_lahir = '$_POST[tanggal]',
-                    id_jabatan = '$_POST[jabatan]',
-                    keterangan = '$_POST[keterangan]'
-                    ");
-    }else{
-        if($tipefile != "image/jpeg" and $tipefile!="image/jpg" and $tipefile!="image/png"){
-            $error = "Tipe file tidak didukung!";
-        }elseif($ukuranfile>=1000000){
-            $error = "Ukuran File terlalu besar (lebih dari 1mb)!";
-        }else{
-            move_uploaded_file($lokasi, "images/".$foto);
-            $query = mysqli_query($con, "INSERT INTO kiriman SET foto = '$foto',
-                                    nama_kiriman = '$_POST[nama]',
-                                    jenis_kelamin = '$_POST[jk]',
-                                    tgl_lahir = '$_POST[tanggal]',
-                                    id_jabatan = '$_POST[jabatan]',
-                                    keterangan = '$_POST[keterangan]'   
+    
+    
+    
+            $query = mysqli_query($con, "INSERT INTO datakiriman SET no_resi = $_POST[resi],
+                                    id_provinces = $_POST[provinsi],
+                                    id_regencies = $_POST[kota],
+                                    berat = $_POST[berat],
+                                    koli = $_POST[koli],
+                                    total = $_POST[total],
+                                    nama_penerima = '$_POST[nama_penerima]',
+                                    alamat_penerima = '$_POST[alamat_penerima]',
+                                    telp_penerima = $_POST[telp_penerima],
+                                    nama_pengirim = '$_POST[nama_pengirim]',
+                                    alamat_pengirim = '$_POST[alamat_pengirim]',
+                                    telp_pengirim = $_POST[telp_pengirim]   
                                     ");
-        }
-    }
-    if($error != ""){
-        echo $error;
-        echo "<meta http-equiv='refresh' content='2; url=?hal=kiriman_tambah'>";
-    }elseif($query){
+    if($query){
         echo "Data Berhasil disimpan!";
         echo "<meta http-equiv='refresh' content='1; url=?hal=kiriman'>";
     }else{
         echo "tidak dapat menyimpan data! <br>";
-        echo mysqli_error();
+        echo mysqli_error($con);
     }
 ?>
