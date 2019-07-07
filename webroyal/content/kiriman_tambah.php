@@ -1,6 +1,9 @@
 <?php
     if(!defined('INDEX')) die("");
 ?>
+<head>
+
+</head>
 <h2 class="judul">Kiriman</h2>
 <form action="?hal=kiriman_insert" method="post" enctype="multipart/form-data">
 <div class="form-group">
@@ -20,7 +23,7 @@
 <?php
             $sql_provinsi = mysqli_query($con, 'select * from provinces');
 ?>
-            <select name="provinsi" id="provinsi">
+            <select name="provinsi" id="provinsi" >
                 <option value="">Pilih Provinsi</option>
 <?php 
                 while($row_provinsi = mysqli_fetch_array($sql_provinsi)){
@@ -42,13 +45,13 @@
     </div>
     <div class="form-group">
         <label for="berat">Berat</label>
-        <div class="inputkecil"><input type="text" name="berat" id="berat"></div>
+        <div class="inputkecil"><input type="text" name="berat" id="berat" onkeyup="hitung2();"></div>
         <label for="koli" id="koli">Koli</label>
-        <div class="inputkecil"><input type="text" name="koli" id="koli"></div>
+        <div class="inputkecil"><input type="text" name="koli" class="koli" id="koli" onkeyup="hitung2();"></div>
     </div>
     <div class="form-group">
         <label for="ongkir">Ongkos Kirim/kg</label>
-        <div class="input"><input type="text" name="ongkir" id="ongkir"></div>
+        <div class="input"><input type="text" name="ongkir" id="ongkir" onkeyup="hitung2();"></div>
     </div>
     <div class="form-group">
         <label for="total">Total Ongkir</label>

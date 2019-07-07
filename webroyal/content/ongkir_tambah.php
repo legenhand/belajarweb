@@ -3,7 +3,7 @@
 ?>
 
 <h2 class="judul">Atur Ongkos Kirim</h2>
-<form action="?hal=jabatan_insert" method="post">
+<form action="?hal=ongkir_insert" method="post">
 
     <div class="form-group">
         <label for="provinsi">Provinsi</label>
@@ -31,5 +31,12 @@
             </select>
         </div>
     </div>
-
+    <div class="form-group">
+        <label for="ongkir">Ongkir</label>
+        <div class="input"><input type="text" name="ongkir" id="ongkir"></div>
+    </div>        
+    <div class="form-group">
+        <input type="submit" value="Simpan" class="tombol simpan">
+        <input type="reset" value="Batal" class="tombol reset">
+    </div>       
 </form>

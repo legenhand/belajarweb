@@ -24,7 +24,7 @@
         <header>
             Aplikasi Manajemen pegawai
         </header>
-        <div class="container">
+        <div class="container">                                       
             <aside>
                 <ul class="menu">
                     <li><a href="?hal=dashboard" class="aktif">Dashboard</a></li>

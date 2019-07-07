@@ -34,8 +34,36 @@
                         }
                     });
                 })
+                $('#kota').change(function(){
+                    var kota_id = $(this).val();
+                    $("#alamat_penerima").val($("#kota option:selected").html() + "," + $("#provinsi option:selected").html());
+
+                    $.ajax({
+                        type: 'POST',
+                        url: 'content/ongkos.php',
+                        data: 'kot_id='+kota_id,
+                        success: function(response){
+                            $('#ongkir').val(response);
+                        }
+                    });
+                })
             });
+            function hitung2() {
+                var ongkir = $("#ongkir").val();
+                var koli = $(".koli").val();
+                var berat = $("#berat").val();
+                total = ongkir * koli * berat;
+                $("#total").val(total);
+            }
+            function isNumberKey(evt){
+                var charCode = (evt.which) ? evt.which : event.keyCode;
+                if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+                return true;
+            }
+            
         </script>
+        
     </head>
     <body>
         <header>
@@ -57,6 +85,16 @@
         <footer>
             Copyright &copy; Firmansyah
         </footer>
+        <script>
+        function total() {
+                var berat = document.getElementById('berat').value;
+                var koli = document.getElementById('koli').value;
+                var ongkir = document.getElementBydId('ongkir').value;
+                var result = parseInt(koli) * (parseInt(berat) * parseInt('ongkir'));
+                if (!isNaN(result)) {
+                    document.getElementById('total').value = result;
+                }
+            }</script>
     </body>
 </html>
 <?php
