@@ -1,5 +1,7 @@
 <?php
     if(!defined('INDEX')) die("");
+    $query = mysqli_query($con, "SELECT * FROM datakiriman WHERE no_resi='$_GET[id]'");
+    $data = mysqli_fetch_array($query);
 ?>
 <head>
 
@@ -27,8 +29,9 @@
                 <option value="">Pilih Provinsi</option>
 <?php 
                 while($row_provinsi = mysqli_fetch_array($sql_provinsi)){
-?>              <option value="<?= $row_provinsi['id'] ?>"><?= $row_provinsi['name_province'] ?></option>
-<?php                    
+                    echo "<option value='$row_provinsi[id]'";
+                    if($row_provinsi['id'] == $data['id_provinces']) echo "selected";
+                    echo ">$row_provinsi[name_province]</option>";                 
                 }    
 ?>
             </select>
@@ -39,7 +42,17 @@
     <label for="kota">Kota</label>
         <div class="input">
             <select name="kota" id="kota">
-                <option value="">Pilih Provinsi terlebih dahulu</option>
+            <?php
+            $sql_kota = mysqli_query($con, 'select * from regencies');
+?>
+                <option value="">Pilih Kota</option>
+<?php 
+                while($row_kota = mysqli_fetch_array($sql_kota)){
+                    echo "<option value='$row_kota[id]'";
+                    if($row_kota['id'] == $data['id_regencies']) echo "selected";
+                    echo ">$row_kota[name]</option>";                 
+                }    
+?>
             </select>
         </div>
     </div>
