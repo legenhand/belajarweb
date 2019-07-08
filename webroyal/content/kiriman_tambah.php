@@ -27,7 +27,7 @@
                 <option value="">Pilih Provinsi</option>
 <?php 
                 while($row_provinsi = mysqli_fetch_array($sql_provinsi)){
-?>              <option value="<?= $row_provinsi['id'] ?>"><?= $row_provinsi['name'] ?></option>
+?>              <option value="<?= $row_provinsi['id'] ?>"><?= $row_provinsi['name_province'] ?></option>
 <?php                    
                 }    
 ?>

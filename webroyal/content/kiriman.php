@@ -9,34 +9,30 @@
     <thead>
         <tr>
             <th>No</th>
-            <th>Foto</th>
-            <th>Nama</th>
-            <th>Jenis Kelamin</th>
-            <th>Tanggal Lahir</th>
-            <th>Jabatan</th>
-            <th>Keterangan</th>
+            <th>Resi</th>
+            <th>nama pengirim</th>
+            <th>nama penerima</th>
+            <th>Kota tujuan</th>
             <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
 <?php
-    $query = mysqli_query($con, "SELECT * FROM kiriman LEFT JOIN jabatan ON kiriman.id_jabatan=jabatan.id_jabatan ORDER BY kiriman.id_kiriman DESC");
+    $query = mysqli_query($con, "SELECT * FROM datakiriman INNER JOIN regencies ON datakiriman.id_regencies=regencies.id ORDER BY datakiriman.no_resi ASC");
     $no  = 0;
     while($data = mysqli_fetch_array($query)){
         $no++;
 ?>
     <tr>
         <td><?= $no ?></td>
-        <td><img src="images/<?= $data['foto']?>" width="100"></td>
-        <td><?= $data['nama_kiriman'] ?></td>
-        <td><?= $data['jenis_kelamin'] ?></td>
-        <td><?= $data['tgl_lahir'] ?></td>
-        <td><?= $data['nama_jabatan'] ?></td>
-        <td><?= $data['keterangan'] ?></td>
+        <td><?= $data['no_resi'] ?></td>
+        <td><?= $data['nama_pengirim'] ?></td>
+        <td><?= $data['nama_penerima'] ?></td>
+        <td><?= $data['name'] ?></td>
         <td>
         
-            <a href="?hal=kiriman_edit&id=<?= $data['id_kiriman']?>" class="tombol edit">Edit</a>
-            <a href="?hal=kiriman_hapus&id=<?= $data['id_kiriman'] ?>&foto=<?= $data['foto'] ?>" class="tombol hapus">hapus</a>
+            <a href="?hal=kiriman_edit&id=<?= $data['no_resi']?>" class="tombol edit">Edit</a>
+            <a href="?hal=kiriman_hapus&id=<?= $data['no_resi'] ?>" class="tombol hapus">hapus</a>
         </td>
     </tr>
     </tbody>

@@ -74,7 +74,7 @@
                 <ul class="menu">
                     <li><a href="?hal=dashboard" class="aktif">Dashboard</a></li>
                     <li><a href="?hal=kiriman">Data kiriman</a></li>
-                    <li><a href="?hal=jabatan">Data Ongkos kirim</a></li>
+                    <li><a href="?hal=ongkir">Data Ongkos kirim</a></li>
                     <li><a href="logout.php">Keluar</a></li>
                 </ul>
             </aside>

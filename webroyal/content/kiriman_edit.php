@@ -1,60 +1,97 @@
 <?php
     if(!defined('INDEX')) die("");
-    $query = mysqli_query($con, "SELECT * FROM kiriman WHERE id_kiriman='$_GET[id]'");
-    $data = mysqli_fetch_array($query);
 ?>
-<h2 class="judul">Tambah kiriman</h2>
-<form action="?hal=kiriman_update" method="post" enctype="multipart/form-data">
-<input type="hidden" name="id" value="<?= $data['id_kiriman'] ?>">
+<head>
+
+</head>
+<h2 class="judul">Kiriman</h2>
+<form action="?hal=kiriman_insert" method="post" enctype="multipart/form-data">
+<div class="form-group">
+        <label for="resi" id="resi">No Resi</label>
+        <div class="inputresi">
+            <input type="text" name="resi" id="resi">
+        </div>
+</div>
+<div id="kiri">    
+    
     <div class="form-group">
-        <label for="foto">Foto</label>
+        <h4>Tujuan</h4>
+    </div>
+    <div class="form-group">
+        <label for="provinsi">Provinsi</label>
         <div class="input">
-            <input type="file" name="foto" id="foto">
-            <img src="images/<?= $data['foto'] ?>" width="150">
+<?php
+            $sql_provinsi = mysqli_query($con, 'select * from provinces');
+?>
+            <select name="provinsi" id="provinsi" >
+                <option value="">Pilih Provinsi</option>
+<?php 
+                while($row_provinsi = mysqli_fetch_array($sql_provinsi)){
+?>              <option value="<?= $row_provinsi['id'] ?>"><?= $row_provinsi['name_province'] ?></option>
+<?php                    
+                }    
+?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+    <label for="kota">Kota</label>
+        <div class="input">
+            <select name="kota" id="kota">
+                <option value="">Pilih Provinsi terlebih dahulu</option>
+            </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="nama">Nama</label>
-        <div class="input"><input type="text" name="nama" id="nama" value="<?= $data['nama_kiriman'] ?>"></div>
+        <label for="berat">Berat</label>
+        <div class="inputkecil"><input type="text" name="berat" id="berat" onkeyup="hitung2();"></div>
+        <label for="koli" id="koli">Koli</label>
+        <div class="inputkecil"><input type="text" name="koli" class="koli" id="koli" onkeyup="hitung2();"></div>
     </div>
     <div class="form-group">
-        <label for="jk">Jenis Kelamin</label>
-        <?php 
-            if($data['jenis_kelamin'] == "L"){
-                $l = "checked";
-                $p = "";
-            }else{
-                $l = "";
-                $p = "checked";
-            }
-        ?>
-        <input type="radio" name="jk" id="jk" value="L" <?= $l ?>>Laki-Laki
-        <input type="radio" name="jk" id="jk" value="P" <?= $p ?>>Perempuan
+        <label for="ongkir">Ongkos Kirim/kg</label>
+        <div class="input"><input type="text" name="ongkir" id="ongkir" onkeyup="hitung2();"></div>
     </div>
     <div class="form-group">
-        <label for="tanggal">Tanggal</label>
-        <div class="input"><input type="date" name="tanggal" id="tanggal" value="<?= $data['tgl_lahir']?>"></div>
+        <label for="total">Total Ongkir</label>
+        <div class="input"><input type="text" name="total" id="total"></div>
+    </div>
+</div>
+<div id="kanan">
+    <div class="form-group">
+        <h4>Penerima</h4>
     </div>
     <div class="form-group">
-        <label for="jabatan">Jabatan</label>
-        <div class="input"><select name="jabatan" id="jabatan">
-            <option value=""> -Pilih Jabatan- </option>
-<?php
-    $queryjabatan = mysqli_query($con, "SELECT * FROM jabatan");
-    while($j = mysqli_fetch_array($queryjabatan)){
-        echo "<option value='$j[id_jabatan]'";
-        if($j['id_jabatan'] == $data['id_jabatan']) echo "selected";
-        echo ">$j[nama_jabatan]</option>";
-    }
-?>
-        </select></div>
+        <label for="nama_penerima">Nama</label>
+        <div class="input"><input type="text" name="nama_penerima" id="nama_penerima"></div>
     </div>
     <div class="form-group">
-        <label for="keterangan">Keterangan</label>
-        <div class="input"><textarea name="keterangan" id="keterangan" rows="5" width="100%"><?= $data['keterangan'] ?></textarea></div>
+        <label for="alamat_penerima">Alamat</label>
+        <div class="input"><textarea name="alamat_penerima" id="alamat_penerima" rows="3"></textarea></div>
+    </div>
+    <div class="form-group">
+        <label for="telp_penerima">No. Telp</label>
+        <div class="input"><input type="text" name="telp_penerima" id="telp_penerima"></div>
+    </div>
+    <div class="form-group">
+        <h4>Pengirim</h4>
+    </div>
+    <div class="form-group">
+        <label for="nama_pengirim">Nama</label>
+        <div class="input"><input type="text" name="nama_pengirim" id="nama_pengirim"></div>
+    </div>
+    <div class="form-group">
+        <label for="alamat_pengirim">Alamat</label>
+        <div class="input"><textarea name="alamat_pengirim" id="alamat_pengirim" rows="3"></textarea></div>
+    </div>
+    <div class="form-group">
+        <label for="telp_pengirim">No. Telp</label>
+        <div class="input"><input type="text" name="telp_pengirim" id="telp_pengirim"></div>
     </div>
     <div class="form-group">
         <input type="submit" value="Simpan" class="tombol simpan">
         <input type="reset" value="Batal" class="tombol reset">
     </div>
+</div>
 </form>
