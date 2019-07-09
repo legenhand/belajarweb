@@ -4,7 +4,7 @@
 
 <h2 class="judul">Data kiriman</h2>
 <a class="tombol" href="?hal=kiriman_tambah">Tambah</a>
-
+<h4>Klik pada no resi untuk detail kiriman</h4>
 <table class="table">
     <thead>
         <tr>
@@ -25,7 +25,7 @@
 ?>
     <tr>
         <td><?= $no ?></td>
-        <td><?= $data['no_resi'] ?></td>
+        <td><a href="?hal=kiriman_detail&id=<?= $data['no_resi'] ?>"><?= $data['no_resi'] ?></a></td>
         <td><?= $data['nama_pengirim'] ?></td>
         <td><?= $data['nama_penerima'] ?></td>
         <td><?= $data['name'] ?></td>

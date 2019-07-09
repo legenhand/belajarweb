@@ -8,7 +8,7 @@
 
     if($query){
         echo "Data berhasil disimpan!";
-        echo "<meta http-equiv='refresh' content='1; url=?hal=ongkir_tambah'>";
+        echo "<meta http-equiv='refresh' content='1; url=?hal=ongkir'>";
     }else{
         echo "Tidak dapat menyimpan data! <br>";
         echo mysqli_error();

@@ -51,11 +51,11 @@
     </div>
     <div class="form-group">
         <label for="ongkir">Ongkos Kirim/kg</label>
-        <div class="input"><input type="text" name="ongkir" id="ongkir" onkeyup="hitung2();"></div>
+        <div class="input"><input type="text" name="ongkir" id="ongkir" onkeyup="hitung2();" readonly></div>
     </div>
     <div class="form-group">
         <label for="total">Total Ongkir</label>
-        <div class="input"><input type="text" name="total" id="total"></div>
+        <div class="input"><input type="text" name="total" id="total" readonly></div>
     </div>
 </div>
 <div id="kanan">
