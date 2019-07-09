@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2019 at 02:44 PM
+-- Generation Time: Jul 09, 2019 at 06:34 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -42,13 +42,6 @@ CREATE TABLE `datakiriman` (
   `alamat_pengirim` varchar(255) NOT NULL,
   `telp_pengirim` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `datakiriman`
---
-
-INSERT INTO `datakiriman` (`no_resi`, `id_provinces`, `id_regencies`, `berat`, `koli`, `total`, `nama_penerima`, `alamat_penerima`, `telp_penerima`, `nama_pengirim`, `alamat_pengirim`, `telp_pengirim`) VALUES
-(2, 32, 3271, 1, 2, 10000, 'aa', 'KOTA BOGOR,JAWA BARAT', 123, 'aaa', 'solo', 123);
 
 -- --------------------------------------------------------
 
@@ -7298,15 +7291,6 @@ CREATE TABLE `ongkir` (
   `id_regencies` int(25) NOT NULL,
   `ongkir` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `ongkir`
---
-
-INSERT INTO `ongkir` (`id_provinces`, `id_regencies`, `ongkir`) VALUES
-(11, 1101, 10000),
-(12, 1201, 15000),
-(32, 3271, 5000);
 
 -- --------------------------------------------------------
 
