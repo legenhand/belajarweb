@@ -2,6 +2,8 @@
     if(!defined('INDEX')) die("");
     $query = mysqli_query($con, "SELECT * FROM datakiriman WHERE no_resi='$_GET[id]'");
     $data = mysqli_fetch_array($query);
+    $sql_ongkir = mysqli_query($con, "SELECT * FROM ongkir WHERE id_regencies = $data[id_regencies]");
+    $ongkir = mysqli_fetch_array($sql_ongkir);
 ?>
 <head>
 
@@ -11,7 +13,7 @@
 <div class="form-group">
         <label for="resi" id="resi">No Resi</label>
         <div class="inputresi">
-            <input type="text" name="resi" id="resi">
+            <input type="text" name="resi" id="resi" value="<?= $data['no_resi'] ?>">
         </div>
 </div>
 <div id="kiri">    
@@ -27,12 +29,13 @@
 ?>
             <select name="provinsi" id="provinsi" >
                 <option value="">Pilih Provinsi</option>
-<?php 
-                while($row_provinsi = mysqli_fetch_array($sql_provinsi)){
-                    echo "<option value='$row_provinsi[id]'";
-                    if($row_provinsi['id'] == $data['id_provinces']) echo "selected";
-                    echo ">$row_provinsi[name_province]</option>";                 
-                }    
+<?php
+                    $queryprov = mysqli_query($con, "SELECT * FROM provinces");
+                    while($prov = mysqli_fetch_array($queryprov)){
+                        echo "<option value='$prov[id]'";
+                        if($prov['id'] == $data['id_provinces']) echo "selected";
+                        echo ">$prov[name_province]</option>";
+                    }
 ?>
             </select>
         </div>
@@ -43,32 +46,29 @@
         <div class="input">
             <select name="kota" id="kota">
             <?php
-            $sql_kota = mysqli_query($con, 'select * from regencies');
-?>
-                <option value="">Pilih Kota</option>
-<?php 
-                while($row_kota = mysqli_fetch_array($sql_kota)){
-                    echo "<option value='$row_kota[id]'";
-                    if($row_kota['id'] == $data['id_regencies']) echo "selected";
-                    echo ">$row_kota[name]</option>";                 
-                }    
+                    $querykota = mysqli_query($con, "SELECT * FROM regencies WHERE province_id='$data[id_provinces]'");
+                    while($kota = mysqli_fetch_array($querykota)){
+                        echo "<option value='$kota[id]'";
+                        if($kota['id'] == $data['id_regencies']) echo "selected";
+                        echo ">$kota[name]</option>";
+                    }
 ?>
             </select>
         </div>
     </div>
     <div class="form-group">
         <label for="berat">Berat</label>
-        <div class="inputkecil"><input type="text" name="berat" id="berat" onkeyup="hitung2();"></div>
+        <div class="inputkecil"><input type="text" name="berat" id="berat" onkeyup="hitung2();" value="<?= $data['berat'] ?>"></div>
         <label for="koli" id="koli">Koli</label>
-        <div class="inputkecil"><input type="text" name="koli" class="koli" id="koli" onkeyup="hitung2();"></div>
+        <div class="inputkecil"><input type="text" name="koli" class="koli" id="koli" onkeyup="hitung2();" value="<?= $data['koli'] ?>"></div>
     </div>
     <div class="form-group">
         <label for="ongkir">Ongkos Kirim/kg</label>
-        <div class="input"><input type="text" name="ongkir" id="ongkir" onkeyup="hitung2();"></div>
+        <div class="input"><input type="text" name="ongkir" id="ongkir" onkeyup="hitung2();" value="<?= $ongkir['ongkir'] ?>"></div>
     </div>
     <div class="form-group">
         <label for="total">Total Ongkir</label>
-        <div class="input"><input type="text" name="total" id="total"></div>
+        <div class="input"><input type="text" name="total" id="total" value="<?= $data['total'] ?>"></div>
     </div>
 </div>
 <div id="kanan">
@@ -77,30 +77,30 @@
     </div>
     <div class="form-group">
         <label for="nama_penerima">Nama</label>
-        <div class="input"><input type="text" name="nama_penerima" id="nama_penerima"></div>
+        <div class="input"><input type="text" name="nama_penerima" id="nama_penerima" value="<?= $data['nama_penerima'] ?>"></div>
     </div>
     <div class="form-group">
         <label for="alamat_penerima">Alamat</label>
-        <div class="input"><textarea name="alamat_penerima" id="alamat_penerima" rows="3"></textarea></div>
+        <div class="input"><textarea name="alamat_penerima" id="alamat_penerima" rows="3" ><?= $data['alamat_penerima'] ?></textarea></div>
     </div>
     <div class="form-group">
         <label for="telp_penerima">No. Telp</label>
-        <div class="input"><input type="text" name="telp_penerima" id="telp_penerima"></div>
+        <div class="input"><input type="text" name="telp_penerima" id="telp_penerima" value="<?= $data['telp_penerima'] ?>"></div>
     </div>
     <div class="form-group">
         <h4>Pengirim</h4>
     </div>
     <div class="form-group">
         <label for="nama_pengirim">Nama</label>
-        <div class="input"><input type="text" name="nama_pengirim" id="nama_pengirim"></div>
+        <div class="input"><input type="text" name="nama_pengirim" id="nama_pengirim" value="<?= $data['nama_pengirim']?>"></div>
     </div>
     <div class="form-group">
         <label for="alamat_pengirim">Alamat</label>
-        <div class="input"><textarea name="alamat_pengirim" id="alamat_pengirim" rows="3"></textarea></div>
+        <div class="input"><textarea name="alamat_pengirim" id="alamat_pengirim" rows="3" ><?= $data['alamat_pengirim'] ?></textarea></div>
     </div>
     <div class="form-group">
         <label for="telp_pengirim">No. Telp</label>
-        <div class="input"><input type="text" name="telp_pengirim" id="telp_pengirim"></div>
+        <div class="input"><input type="text" name="telp_pengirim" id="telp_pengirim" value="<?= $data['telp_pengirim'] ?>"></div>
     </div>
     <div class="form-group">
         <input type="submit" value="Simpan" class="tombol simpan">
