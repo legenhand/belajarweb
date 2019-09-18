@@ -1,0 +1,34 @@
+h2,
+#pengarang {
+    text-align: center;
+}
+
+#pengarang {
+    margin-top: 0;
+}
+
+h2#judul {
+    margin-bottom: 0;
+}
+
+#puisi {
+    width: 40%;
+    padding: 0% 30%;
+}
+
+#kiri {
+    text-align: left;
+}
+
+#kanan {
+    text-align: left;
+    width: 83%;
+    padding: 0 0 0 17%;
+}
+
+html,
+body {
+    background-image: linear-gradient(red, white);
+    margin: 0;
+    height: 100%;
+}
